@@ -23,13 +23,11 @@ Small things (deserves no own repo) goes here.
 
     Original <https://github.com/poritsky/PlainTasksOF>
 
-- **\#4. Keybindings for Sublime Text 2**
+- **~~\#4. private~~**
 
-- **~~\#5. private~~**
+- **\#5. GitHub-akin html template for Pandoc**
 
-- **\#6. GitHub-akin html template for Pandoc**
-
-- **\#7. Python script randomize-file (Windows-only, I guess)**
+- **\#6. Python script randomize-file (Windows-only, I guess)**
 
     Opens random file from specific folder in default application
 
