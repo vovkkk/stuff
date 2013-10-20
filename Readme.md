@@ -1,35 +1,39 @@
 Small things (deserves no own repo) goes here.
 
-# \#1. LAZY colour scheme with highlighting for Diff syntax
-It can be used with Sublime Text and [supposedly] Texmate.
-The pure beauty:
-[![](http://storage7.static.itmages.ru/i/13/0608/h_1370707407_2730244_fb28f528b6.png)](http://storage7.static.itmages.ru/i/13/0608/h_1370707407_2730244_fb28f528b6.png)
+- **\#1. LAZY colour scheme with highlighting for Diff syntax**
 
-## Installation
-For ST2:
+    It can be used with Sublime Text and [supposedly] Texmate.
+    The pure beauty:
+    [![](http://storage7.static.itmages.ru/i/13/0608/h_1370707407_2730244_fb28f528b6.png)](http://storage7.static.itmages.ru/i/13/0608/h_1370707407_2730244_fb28f528b6.png)
 
-- put `LAZY.tmTheme` file to `%appdata%\Sublime Text 2\Packages\User`
-- choose the theme in the app `Preferences > Color Scheme > User > LAZY`
+    - Installation
 
-# \#2. My personal settings for Sublime Text 2
-- _Preferences_.
-- for plugins:
-    - _Package Control_;
-    - _PlainTasks_.
+        For ST2:
 
-# \#3. Fork of tasks-OF colour scheme for PlainTasks
-Original <https://github.com/poritsky/PlainTasksOF>
+        - put `LAZY.tmTheme` file to `%appdata%\Sublime Text 2\Packages\User`
+        - choose the theme in the app `Preferences > Color Scheme > User > LAZY`
 
-# \#4. Keybindings for Sublime Text 2
-- `f1`: toggle line numbers;
-- `f2`: convert and preview markdown to html via pandoc.
+- **\#2. My personal settings and keybindings for Sublime Text 2**
+    - _Preferences_.
+    - for plugins:
+        - _Package Control_;
+        - _PlainTasks_.
+    - `f1`: toggle line numbers;
+    - `f2`: convert and preview markdown to html via pandoc;
+    - `f3`: fold with regex.
 
-# \#5. Snippets for Sublime Text 2
-- ~~today-project~~     !!!PRIVATE!!!
+- **\#3. Fork of tasks-OF colour scheme for PlainTasks**
 
-# \#6. GitHub-akin html template for Pandoc
+    Original <https://github.com/poritsky/PlainTasksOF>
 
-# \#7. Python script randomize-file (Windows-only, I guess)
-Opens random file from specific folder in default application
+- **\#4. Keybindings for Sublime Text 2**
 
-[![](http://storage7.static.itmages.com/i/13/1020/h_1382288778_9465968_6ccfac0d37.png)](http://storage7.static.itmages.com/i/13/1020/h_1382288778_9465968_6ccfac0d37.png)
+- **~~\#5. private~~**
+
+- **\#6. GitHub-akin html template for Pandoc**
+
+- **\#7. Python script randomize-file (Windows-only, I guess)**
+
+    Opens random file from specific folder in default application
+
+    [![](http://storage7.static.itmages.com/i/13/1020/h_1382288778_9465968_6ccfac0d37.png)](http://storage7.static.itmages.com/i/13/1020/h_1382288778_9465968_6ccfac0d37.png)
