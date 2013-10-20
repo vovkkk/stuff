@@ -1,0 +1,19 @@
+{
+	"installed_packages":
+	[
+		"FindKeyConflicts",
+		"knockdown",
+		"LineEndings",
+		"Package Control",
+		"PlainTasks",
+		"PowerShell",
+		"SmartMarkdown",
+		"SublimePandoc",
+		"SublimeTODO"
+	],
+	"repositories":
+	[
+		"https://github.com/robcowie/SublimeTODO.git",
+		"https://github.com/vovkkk/SublimePandoc.git"
+	]
+}
