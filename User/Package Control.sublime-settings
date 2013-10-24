@@ -1,7 +1,9 @@
 {
 	"installed_packages":
 	[
+		"Filter Lines",
 		"FindKeyConflicts",
+		"Google Search",
 		"knockdown",
 		"LineEndings",
 		"Package Control",
@@ -9,7 +11,8 @@
 		"PowerShell",
 		"SmartMarkdown",
 		"SublimePandoc",
-		"SublimeTODO"
+		"SublimeTODO",
+		"Superlime"
 	],
 	"repositories":
 	[

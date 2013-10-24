@@ -1,0 +1,5 @@
+[
+{"keys": ["f1"], "command": "toggle_setting", "args": {"setting": "line_numbers"}},
+{"keys": ["f2"], "command": "open_file_in_default_app"},
+{"keys": ["f3"], "command": "fold_to_lines", "args": { "search_type": "regex"}}
+]

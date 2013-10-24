@@ -10,6 +10,7 @@
   "indent_after_task": true, // indenting the next line after tasks
 
   "color_scheme": "Packages/User/tasks-OF.hidden-tmTheme",
+  //"color_scheme": "Packages/PlainTasks/tasks.hidden-tmTheme",
   "font_size": 11,
   "font_face": "Consolas",
   "draw_indent_guides": true,

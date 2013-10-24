@@ -1,6 +1,0 @@
-[
-{ "keys": ["f1"], "command": "toggle_setting", "args": {"setting": "line_numbers"}},
-{ "keys": ["f2"], "command": "pandoc_render", 
-    "args": { "openAfter": true, "target": "html", "writeBeside": false},
-    "context": [{"key": "selector", "operator": "equal", "operand": "text.html.markdown" }]}
-]
