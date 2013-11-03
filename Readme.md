@@ -21,7 +21,7 @@ Small things (deserves no own repo) goes here.
 - **\#3. Fork of tasks-OF colour scheme for PlainTasks**  
     Original <https://github.com/poritsky/PlainTasksOF>
 - **~~\#4. private~~**
-- **\#5. OpenFileInDefaultApp.py **  
+- **\#5. OpenFileInDefaultApp.py**  
     So it can be used to preview markdown.
 
 # Random stuff
