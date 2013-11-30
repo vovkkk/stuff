@@ -1,0 +1,21 @@
+.content {
+max-width:700px !important;
+-moz-hyphens: auto !important;
+font-family: Segoe UI;
+font-size:18px;
+}
+.headline-title{
+overflow:visible !important;
+display:block !important;
+font-family: Segoe UI;
+}
+headline-contaner {
+padding-bottom:10px;
+}
+.headline-header {
+padding:0px;
+}
+img{
+max-width:95% !important;
+height:auto !important;
+}

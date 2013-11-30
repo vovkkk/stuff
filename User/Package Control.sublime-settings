@@ -8,7 +8,9 @@
 		"LineEndings",
 		"Package Control",
 		"PlainTasks",
+		"PlainTasksExtractTodo",
 		"PowerShell",
+		"Python Auto-Complete",
 		"SmartMarkdown",
 		"SublimePandoc",
 		"SublimeTODO",
@@ -17,6 +19,7 @@
 	"repositories":
 	[
 		"https://github.com/robcowie/SublimeTODO.git",
-		"https://github.com/vovkkk/SublimePandoc.git"
+		"https://github.com/vovkkk/SublimePandoc.git",
+		"https://github.com/vovkkk/PlainTasksExtractTodo"
 	]
 }
