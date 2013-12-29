@@ -191,8 +191,6 @@
 			<string>string.other.tag.todo.today</string>
 			<key>settings</key>
 			<dict>
-				<key>background</key>
-				<string>#E2E9F8</string>
 				<key>foreground</key>
 				<string>#D0000F</string>
 				<key>fontStyle</key>

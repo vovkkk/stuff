@@ -1,7 +1,7 @@
 Small things (deserves no own repo) goes here.
 
 # For Sublime Text
-- **\#1. LAZY colour scheme with highlighting for Diff syntax**  
+- **\#1. LAZY colour scheme with highlighting for Diff syntax**.  
     It can be used with Sublime Text and [supposedly] Texmate.  
     The pure beauty:  
     [![](http://storage7.static.itmages.ru/i/13/0608/h_1370707407_2730244_fb28f528b6.png)](http://storage7.static.itmages.ru/i/13/0608/h_1370707407_2730244_fb28f528b6.png)

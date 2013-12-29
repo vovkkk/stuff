@@ -9,14 +9,11 @@ class LetUsGetRatchet:
         grist = tempfile.gettempdir() + '\\chrome-win32.zip'
         with io.open(grist, 'wb') as f:
             f.write(got_da_chrome)
-        CallMeBro().maybe('rolling?')
         with zipfile.ZipFile(grist, 'r') as f:
             shutil.rmtree('D:\\Program Files\\inet\\chrome-win32')
             members = self.grind(map(lambda a: ((a, b) for b in cut_da_crap), f.namelist()))
             f.extractall('D:\\Program Files\\inet', members)
         os.remove(grist)
-        CallMeBro().maybe('ready')
-
     def grind(self, m):
         for l in m:
             v = True
@@ -26,7 +23,6 @@ class LetUsGetRatchet:
             if v:
                 yield i[0]
 
-
 class CallMeBro:
     def maybe(self, q):
         import win32ui, win32com.client, subprocess
@@ -34,18 +30,17 @@ class CallMeBro:
             for p in win32com.client.GetObject('winmgmts:').InstancesOf('win32_process'):
                 if 'chrome' in p.Name:
                     a = win32ui.MessageBox("chrome running\nclose it", "Yo!", 5)
-                    if a is 4:
-                        LetUsGetRatchet().yup()
-                    else:
-                        quit()
+                    if a is 4: pass
+                    else: quit()
                     break
-        if q == 'ready':
+        elif q == 'ready':
             a = win32ui.MessageBox("got da new chrome\nstart it?", "Yo!", 1)
             if a is 1:
-                subprocess.Popen('D:\\Program Files\\inet\\chrome-win32\\chrome.exe')
-            else:
-                quit()
-
+                subprocess.call('D:\\Program Files\\inet\\chrome-win32\\chrome.exe')
+            else: quit()
+        else: raise Exception('Bro says "WHA?!!1"')
 
 if __name__ == '__main__':
+    CallMeBro().maybe('rolling?')
     LetUsGetRatchet().yup()
+    CallMeBro().maybe('ready')
