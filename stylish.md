@@ -75,3 +75,10 @@ body{font-family: caption !important;}
   box-shadow: none !important;
 }}
 ```
+- width
+```css
+@namespace url(http://www.w3.org/1999/xhtml);
+body, div, p, em, li, ol, ul, table, article{
+width:100%!important;
+}
+```
