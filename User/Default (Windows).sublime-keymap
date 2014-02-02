@@ -1,7 +1,10 @@
 [
 {"keys": ["f1"], "command": "toggle_setting", "args": {"setting": "line_numbers"}},
 {"keys": ["f2"], "command": "open_file_in_default_app"},
-{"keys": ["f3"], "command": "fold_to_lines", "args": { "search_type": "regex"}},
+{"keys": ["f3"], "command": "fold_to_lines", "args": {"search_type": "regex"}},
+{"keys": ["f11"], "command": "toggle_side_bar"},
+{"keys": ["f12"], "command": "dired", "args": {"immediate": true}},
+{"keys": ["shift+backspace"], "command": "close_file"},
 {"keys": ["alt+1"], "command": "fold_by_level", "args": {"level": 1}},
 {"keys": ["alt+2"], "command": "fold_by_level", "args": {"level": 2}},
 {"keys": ["alt+3"], "command": "fold_by_level", "args": {"level": 3}},
@@ -12,5 +15,14 @@
 {"keys": ["alt+8"], "command": "fold_by_level", "args": {"level": 8}},
 {"keys": ["alt+9"], "command": "fold_by_level", "args": {"level": 9}},
 {"keys": ["alt+0"], "command": "unfold_all"},
-{"keys": ["f11"], "command": "toggle_side_bar"}
+{"keys": ["ctrl+shift+."], "command": "change_heading_level",
+ "args": {"up": true}, "context":[{"key": "selector", "operator": "equal", "operand": "text.html.markdown"}]},
+{"keys": ["ctrl+shift+,"], "command": "change_heading_level",
+ "args": {"up": false}, "context":[{"key": "selector", "operator": "equal", "operand": "text.html.markdown"}]},
+{"keys": ["?"], "command": "find_next", /*  shift+/   */
+ "context": [{"key": "selector", "operator": "equal", "operand": "text.dired"},
+             {"key": "setting.dired_rename_mode", "operand": false}]},
+{"keys": ["ctrl+/"], "command": "find_prev",
+ "context": [{"key": "selector", "operator": "equal", "operand": "text.dired"},
+             {"key": "setting.dired_rename_mode", "operand": false}]}
 ]

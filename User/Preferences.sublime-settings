@@ -28,7 +28,9 @@
 		"*.pdf",
 		"*.swf",
 		"*.jar",
-		"*.zip"
+		"*.zip",
+		"*.lnk",
+		"*.dll"
 	],
 	"bold_folder_labels": false,
 	"caret_style": "smooth",

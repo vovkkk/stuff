@@ -1,0 +1,42 @@
+.content, .headline-title, .title-link, .subheader, .day-header{ font-family: caption!important;
+}
+.content, .headline-title, .title-link{
+ font-size:18px!important;
+ font-weight: normal !important; color: black !important;
+}
+.title-link{ font-size:22px!important;
+}
+.subheader, .day-header{ font-size: 12px;
+}
+article.read .headline-title, article.read .title-link, .subheader, .day-header{ color: lightgray!important
+}
+.content{ max-width:700px !important; min-width:100px !important;
+}
+.headline-title{ overflow:visible !important; display:block !important;
+}
+.headline-header{ padding:0px;
+}
+img{ width:auto!important; max-width:95% !important; height:auto !important;
+}
+.full-container{
+ background: none!important;
+ border-width: 1px!important;
+ border-radius: 0!important;
+ border-color: white!important;
+ -moz-border-bottom-colors: lightgray!important;
+}
+article.selected > .full-container {
+ margin:5px 0!important;
+ border-width: 1px!important;
+ border-color: white!important;
+ box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.3);
+}
+article.headline > .full-container{
+ margin-left: 0px!important;
+}
+.mark-read-button, .delete-button{ background-image: none!important;
+}
+.mark-read-button{ background: #d0f0c0;}
+.mark-read-button:hover{ background: #d0ffc0;}
+.delete-button{ background: #f0d0d0; border-left: 0!important;}
+.delete-button:hover{ background: #ffd0d0;}
