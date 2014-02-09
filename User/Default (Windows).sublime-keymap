@@ -1,5 +1,7 @@
 [
 {"keys": ["f1"], "command": "toggle_setting", "args": {"setting": "line_numbers"}},
+{"keys": ["alt+f1"], "command": "zeal_search_selection"},
+{"keys": ["shift+f1"], "command": "zeal_search"},
 {"keys": ["f2"], "command": "open_file_in_default_app"},
 {"keys": ["f3"], "command": "fold_to_lines", "args": {"search_type": "regex"}},
 {"keys": ["f11"], "command": "toggle_side_bar"},
@@ -19,7 +21,7 @@
  "args": {"up": true}, "context":[{"key": "selector", "operator": "equal", "operand": "text.html.markdown"}]},
 {"keys": ["ctrl+shift+,"], "command": "change_heading_level",
  "args": {"up": false}, "context":[{"key": "selector", "operator": "equal", "operand": "text.html.markdown"}]},
-{"keys": ["?"], "command": "find_next", /*  shift+/   */
+{"keys": ["…"], "command": "find_next", /*  alt+/   */
  "context": [{"key": "selector", "operator": "equal", "operand": "text.dired"},
              {"key": "setting.dired_rename_mode", "operand": false}]},
 {"keys": ["ctrl+/"], "command": "find_prev",
