@@ -2,12 +2,16 @@
 	"installed_packages":
 	[
 		"BetterFindBuffer",
+		"Color Highlighter",
+		"ExpandRegion",
 		"FileBrowser",
 		"Filter Lines",
 		"FindKeyConflicts",
 		"Google Search",
+		"InsertDate",
 		"knockdown",
 		"LineEndings",
+		"LineJumper",
 		"Package Control",
 		"PlainTasks",
 		"PlainTasksExtractTodo",
@@ -23,6 +27,7 @@
 	[
 		"https://github.com/robcowie/SublimeTODO.git",
 		"https://github.com/vovkkk/SublimePandoc.git",
-		"https://github.com/vovkkk/PlainTasksExtractTodo"
+		"https://github.com/vovkkk/PlainTasksExtractTodo",
+		"https://github.com/hypebeast/LineJumper"
 	]
 }

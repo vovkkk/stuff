@@ -1,0 +1,10 @@
+{
+  "zeal_command": "D:\\dev\\zeal-20140122\\zeal.exe",
+  "language_mapping": {
+    "HTML": {"lang": "html", "zeal_lang": "html"},
+    "JavaScript": {"lang": "javascript", "zeal_lang": "javascript"},
+    "CSS": {"lang": "css", "zeal_lang": "css"},
+    "Python_2": {"lang": "python", "zeal_lang":"python_2"},
+    "Python_3": {"lang": "python", "zeal_lang":"python_3"}
+  }
+}

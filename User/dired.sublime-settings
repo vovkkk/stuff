@@ -1,0 +1,19 @@
+{
+	"color_scheme": "Packages/FileBrowser/dired.hidden-tmTheme",
+	"dired_confirm_send2trash": true,
+	"dired_jump_points":
+	"dired_reuse_view": true,
+	"dired_show_parent": false,
+	"drag_text": false,
+	"draw_indent_guides": false,
+	"fold_buttons": false,
+	"highlight_line": true,
+	"line_numbers": false,
+	"margin": 0,
+	"rulers":
+	[
+	],
+	"scroll_past_end": false,
+	"spell_check": false,
+	"word_wrap": false
+}
