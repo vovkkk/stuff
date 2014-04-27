@@ -4,11 +4,11 @@
 ```css
 @-moz-document domain("myshows.ru"){
 *{font-family: caption !important}
-div.inner{
-  min-width: 0 !important;
-  padding-left: 10px !important
-}}
+div.inner {min-width: 0 !important;
+           padding-left: 10px !important}
+}
 ```
+
 - yadisk
 ```css
 @-moz-document domain("yandex.ru"){
@@ -16,14 +16,18 @@ div.inner{
 .b-case-aside_default-fixed{left: 246px !important;}
 }
 ```
+
 - youtube
 ```css
 @-moz-document domain("youtube.com"){
-body{font-family: caption !important;}
+body{font-family: caption !important; background: none !important;}
+#masthead-positioner{
+  position: relative !important;
+}
 #yt-masthead-container{
   background: none !important;
-  border: none !important;
-  padding:0 0 116px !important;}
+  border: 0 !important;
+  padding:0 0 66px !important;}
 #page.watch{padding:0px !important;}
 #guide-container{
   left:0px !important;
@@ -39,10 +43,13 @@ body{font-family: caption !important;}
 .site-left-aligned.guide-expanded #watch7-main-container{
   padding-left: 190px !important;
 }
-.watch-sidebar{max-width:none !important;}
-.watch7-playlist-bar{
+.watch-sidebar{
+  max-width:none !important;
+  margin-top: -420px !important;
+  top:30px!important;}
+.watch7-playlist-bar {
   position: absolute !important;
-  top: -34px;
+  top: -34px !important;
   max-width: 1060px;
 }
 .video-list .video-list-item .title{
@@ -75,10 +82,13 @@ body{font-family: caption !important;}
   box-shadow: none !important;
 }}
 ```
+
 - width
 ```css
 @namespace url(http://www.w3.org/1999/xhtml);
-body, div, p, em, li, ol, ul, table, article{
-width:100%!important;
+//body, div, p, em, li, ol, ul, table, article
+img{
+width:95%!important;
+height: auto;
 }
 ```

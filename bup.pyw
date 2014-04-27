@@ -66,12 +66,12 @@ class BUP(tk.Tk):
         self.dest_tree.column("#0", width=1)
         self.dest_tree.column("#1", width=150)
         self.dest_tree.column("#2", anchor='e', width=70, stretch=False)
-        months = set(d.strftime('%Y, %B') for d in (datetime.datetime.strptime(f.split('.')[0], self.dte) for f in bups))
+        months = sorted(list(set(d.strftime('%Y, %B') for d in (datetime.datetime.strptime(f.split('.')[0], self.dte) for f in bups))), key=lambda m: datetime.datetime.strptime(m, '%Y, %B'))
         for i, f in enumerate(months, start=1):
             self.dest_tree.insert(parent='', iid=i, index='end', values=[f], open=True, tags=('month'))
         self.dest_tree.tag_configure('month', background='#eee')
         for i, f in enumerate(bups):
-            iid = 1 + list(months).index(datetime.datetime.strptime(f.split('.')[0], self.dte).strftime('%Y, %B'))
+            iid = 1 + months.index(datetime.datetime.strptime(f.split('.')[0], self.dte).strftime('%Y, %B'))
             self.dest_tree.insert(parent=iid, index='end', values=[f, str(round(float(sizes[i])/1024000, 3)).replace('.', ' ')+' KB'])
 
     def Activate_part_bup_btn(self, event):
@@ -190,6 +190,7 @@ class BUP(tk.Tk):
                 u'Sublime Text 2\\Backup',
                 u'Roaming\\uTorrent',
                 u'Roaming\\vlc\\art',
+                u'Roaming\\Yandex\\YandexDisk',
                 u'gPodder\\Downloads',
                 u'GTA IV\\User Music',
                 u'vova\\Downloads',

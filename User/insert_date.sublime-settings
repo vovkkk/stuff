@@ -1,0 +1,7 @@
+{
+  "prompt_config": [
+    {"name": "Default"},
+    {"name": "Time", "format": "%X"},
+    {"name": "Date", "format": "%x"},
+    {"name": "iso",  "format": "iso"}
+]}

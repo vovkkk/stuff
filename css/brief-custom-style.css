@@ -1,7 +1,5 @@
-.content, .headline-title, .title-link, .subheader, .day-header{ font-family: caption!important;
-}
-.content, .headline-title, .title-link{
- font-size:18px!important;
+*{ font-family: caption!important;}
+.content, .headline-title, .title-link{ font-size:18px!important;
  font-weight: normal !important; color: black !important;
 }
 .title-link{ font-size:22px!important;
