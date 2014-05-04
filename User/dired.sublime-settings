@@ -2,6 +2,13 @@
 	"git_path" : "~/Appdata/Local/GitHub/PortableGit_*/cmd/git.exe",
 	"color_scheme": "Packages/FileBrowser/dired.hidden-tmTheme",
 	"dired_confirm_send2trash": true,
+	"dired_jump_points":
+	{
+		"AppData": "C:\\Users\\vova\\AppData\\",
+		"FileBrowser": "C:\\Users\\vova\\AppData\\Roaming\\Sublime Text 2\\Packages\\FileBrowser\\",
+		"GitHub": "D:\\dev\\GitHub\\",
+		"Temp": "C:\\Users\\vova\\AppData\\Local\\Temp\\"
+	},
 	"dired_reuse_view": true,
 	"dired_show_parent": false,
 	"drag_text": false,

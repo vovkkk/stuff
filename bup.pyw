@@ -59,7 +59,7 @@ class BUP(tk.Tk):
         # self.config_btn.bind('<Button-1>', self.Config)
         self.dest_tree.bind('<<TreeviewSelect>>', self.Activate_part_bup_btn)
         # fill treeview
-        bups = os.listdir(self.dest)
+        bups = [i for i in os.listdir(self.dest) if i.endswith('.zip')]
         sizes = [os.path.getsize(os.path.join(self.dest, f)) for f in bups]
         self.dest_tree.heading("#1", text=u'{0}{2}{1} files'.format(self.dest, len(bups), ' '*4))
         self.dest_tree.heading("#2", text=u'{0} GiB'.format(round(float(reduce(lambda x, y: x+y, sizes))/1024**3, 2)))
@@ -174,28 +174,37 @@ class BUP(tk.Tk):
 
     def settings(self):
         self.what = (unicode(os.path.expanduser('~')),
-                u'D:\\dev\\GitHub',
-                u'D:\\Dropbox\\mine\\notes-md')
+                u'D:\dev\GitHub',
+                u'D:\Dropbox\mine\\notes-md')
         self.dest = 'S:\\bup\\'
         self.dte = '%y-%m-%d-%H-%M'
         self.crap = (u'cache', u'Cache', u'Temp', u'tmp', u'.gimp-2.8',
                 u'Local\Mozilla\Firefox',  u'Chromium',
-                u'AppData\\Local\\GitHub', u'gith..', u'github',
-                u'AppData\\Roaming\\Dropbox',
-                u'Microsoft\\SkyDrive',
-                u'Microsoft\\Windows Live\\Contacts',
-                u'Microsoft\\Windows\\Explorer',
-                u'FastStone\\FSIV',
-                u'Firefox\\Crash Reports',
-                u'Sublime Text 2\\Backup',
+                u'AppData\Local\GitHub', u'gith..', u'github',
+                u'AppData\Roaming\Dropbox',
+                u'Microsoft\SkyDrive',
+                u'Microsoft\Windows Live\Contacts',
+                u'Microsoft\Windows\Explorer',
+                u'FastStone\FSIV',
+                u'Firefox\Crash Reports',
+                u'Sublime Text 2\Backup',
                 u'Roaming\\uTorrent',
                 u'Roaming\\vlc\\art',
-                u'Roaming\\Yandex\\YandexDisk',
-                u'gPodder\\Downloads',
+                u'Roaming\Yandex\YandexDisk',
+                u'gPodder\Downloads',
                 u'GTA IV\\User Music',
-                u'vova\\Downloads',
-                u'zeal\\docsets',
-                u'AppData\\Local\\Texts')
+                u'vova\Downloads',
+                u'zeal\docsets',
+                u'AppData\Local\Texts',
+                u'TuneUp Utilities\CrashDumps',
+                u'LocalState',
+                u'Local\Microsoft\Windows\\Notifications',
+                u'Local\Microsoft\Windows\WER\ReportArchive',
+                u'Local\Microsoft\Windows\SkyDrive\logs',
+                u'Local\Microsoft\Windows\PowerShell\CommandAnalysis',
+                u'Local\Microsoft\Messenger',
+                u'Local\Microsoft\Media Player',
+                u'Local\Microsoft\WLSetup')
 
 if __name__ == '__main__':
     BUP().mainloop()

@@ -2,7 +2,8 @@
 	"installed_packages":
 	[
 		"BetterFindBuffer",
-		"Color Highlighter",
+		"Chain of Command",
+		"Creole",
 		"ExpandRegion",
 		"FileBrowser",
 		"Filter Lines",
