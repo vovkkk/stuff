@@ -16,14 +16,16 @@
 findbar {padding: 0 2px !important;}
 
 /* move menu popup by 1px */
-#appmenu-popup {
-    margin-top: 0px !important;
-}
+#appmenu-popup{ margin-top: 0px !important;}
 
-#main-window #navigator-toolbox  {
+#main-window[sizemode="normal"] #navigator-toolbox{
  margin-top:-7px!important;
 }
-#main-window #toolbar-menubar  {
+#main-window[sizemode="maximized"] #navigator-toolbox,
+#main-window[sizemode="fullscreen"] #navigator-toolbox{
+ margin-top:-1px!important;
+}
+#main-window[sizemode="normal"] #toolbar-menubar{
  margin-top:7px!important;
  margin-bottom: -7px;
 }
