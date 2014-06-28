@@ -1,0 +1,66 @@
+body, div.text_cell_render {font-family: caption;}
+* {border-radius: 0px!important;}
+
+.rendered_html * + p { margin-top: .3em;}
+.text_cell > .input_prompt {display: none;}
+div.inner_cell {
+ flex: none;
+ padding-left: 5px;
+}
+div.cell {margin: .5em 0;}
+div.text_cell_render h1 { /* Main titles bigger, centered */
+ font-size: 2.2em;
+ line-height:1.4em;
+ text-align:center;
+}
+div.text_cell_render { /* Customize text cells */
+ font-size:1.5em;
+ line-height:1.4em;
+ padding: 0 10px;
+}
+div.cell.edit_mode{border-color: #66A7E8!important;}
+div.cell.selected {border-color: #D1E8FF;}
+div.input_area {
+ border: none;
+ outline: 1px solid lightgrey;
+}
+
+/*list of files*/
+.list_container, .list_container *{border: none!important;}
+
+/*ui*/
+#menubar .navbar {margin-bottom: 0px}
+#maintoolbar {margin-top: 4px}
+.navbar-inner {
+ background-color: inherit;
+ background-image: none;
+ border: none;
+}
+.btn, .navbar .nav > li > a { text-shadow: none;}
+.btn {
+ background-image: none;
+ border: 1px solid #CCC;
+}
+.btn, .navbar-inner, div#notebook_panel, .navbar-static-top .navbar-inner {
+ box-shadow: none;
+}
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus, .dropdown-submenu:hover > a, .dropdown-submenu:focus > a {
+ color: black;
+ background-color: #D1E8FF;
+ background-image: none;
+}
+.navbar .nav > li > .dropdown-menu:after {
+ border-left: 0px solid transparent;
+ border-right: 0px solid transparent;
+ border-bottom: 0px solid #FFF;
+}
+.navbar .nav > li > .dropdown-menu:before {
+ border-left: 0px solid transparent;
+ border-right: 0px solid transparent;
+ border-bottom: 0px solid rgba(0, 0, 0, 0.2);
+}
+.dropdown-menu {
+ box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+}
+.modal_stretch { max-height: 98%; height: auto;}
+.modal { top: 0;}

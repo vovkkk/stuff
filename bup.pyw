@@ -23,7 +23,7 @@ import pprint
 # TODO: add only changed or new files
 # TODO: ¿profiles? ¡PROBABLY NOT!
 
-import zipfile, os, datetime, itertools, zlib, ttk, threading, time
+import zipfile, os, datetime, itertools, zlib, ttk, threading
 import Tkinter as tk
 import ScrolledText as tkst
 
@@ -58,7 +58,9 @@ class BUP(tk.Tk):
         # self.part_bup_btn.bind('<Button-1>', self.JesusSavesThoseWhoDeserves)
         # self.config_btn.bind('<Button-1>', self.Config)
         self.dest_tree.bind('<<TreeviewSelect>>', self.Activate_part_bup_btn)
-        # fill treeview
+        self.fill_treeview()
+
+    def fill_treeview(self):
         bups = [i for i in os.listdir(self.dest) if i.endswith('.zip')]
         sizes = [os.path.getsize(os.path.join(self.dest, f)) for f in bups]
         self.dest_tree.heading("#1", text=u'{0}{2}{1} files'.format(self.dest, len(bups), ' '*4))
@@ -66,12 +68,12 @@ class BUP(tk.Tk):
         self.dest_tree.column("#0", width=1)
         self.dest_tree.column("#1", width=150)
         self.dest_tree.column("#2", anchor='e', width=70, stretch=False)
-        months = sorted(list(set(d.strftime('%Y, %B') for d in (datetime.datetime.strptime(f.split('.')[0], self.dte) for f in bups))), key=lambda m: datetime.datetime.strptime(m, '%Y, %B'))
-        for i, f in enumerate(months, start=1):
+        self.months = sorted(list(set(d.strftime('%Y, %B') for d in (datetime.datetime.strptime(f.split('.')[0], self.dte) for f in bups))), key=lambda m: datetime.datetime.strptime(m, '%Y, %B'))
+        for i, f in enumerate(self.months, start=1):
             self.dest_tree.insert(parent='', iid=i, index='end', values=[f], open=True, tags=('month'))
         self.dest_tree.tag_configure('month', background='#eee')
         for i, f in enumerate(bups):
-            iid = 1 + months.index(datetime.datetime.strptime(f.split('.')[0], self.dte).strftime('%Y, %B'))
+            iid = 1 + self.months.index(datetime.datetime.strptime(f.split('.')[0], self.dte).strftime('%Y, %B'))
             self.dest_tree.insert(parent=iid, index='end', values=[f, str(round(float(sizes[i])/1024000, 3)).replace('.', ' ')+' KB'])
 
     def Activate_part_bup_btn(self, event):
@@ -114,7 +116,8 @@ class BUP(tk.Tk):
                                 # else:
                                 #     pass
                         elif not dirs:
-                            self.console.insert(1.0, 'Skip empty folder:\n  %s\n\n'%root)
+                            pass
+                            # self.console.insert(1.0, 'Skip empty folder:\n  %s\n\n'%root)
                         else:
                             # print('oops', root, dirs, files)
                             pass
@@ -123,11 +126,14 @@ class BUP(tk.Tk):
             else:
                 with zipfile.ZipFile(zip_bup, 'r') as f:
                     wha = f.testzip()
-                end = time.time()
+                end = datetime.datetime.now()
                 self.console.insert(1.0, str(end-start)+'\n\nERRORS IN ZIP_FILE %s\n\n' % wha)
                 self.full_bup_btn.state(['!disabled'])
+                # re-fill tree
+                self.dest_tree.delete(*(i for i in xrange(1, len(self.months)+1)))
+                self.fill_treeview()
             event_for_set.set()
-        start = time.time()
+        start = datetime.datetime.now()
         write_event = threading.Event()
         report_event = threading.Event()
         t1 = threading.Thread(target=_sender, args=(write_event, report_event))
@@ -178,33 +184,43 @@ class BUP(tk.Tk):
                 u'D:\Dropbox\mine\\notes-md')
         self.dest = 'S:\\bup\\'
         self.dte = '%y-%m-%d-%H-%M'
-        self.crap = (u'cache', u'Cache', u'Temp', u'tmp', u'.gimp-2.8',
-                u'Local\Mozilla\Firefox',  u'Chromium',
-                u'AppData\Local\GitHub', u'gith..', u'github',
-                u'AppData\Roaming\Dropbox',
-                u'Microsoft\SkyDrive',
-                u'Microsoft\Windows Live\Contacts',
-                u'Microsoft\Windows\Explorer',
-                u'FastStone\FSIV',
-                u'Firefox\Crash Reports',
-                u'Sublime Text 2\Backup',
-                u'Roaming\\uTorrent',
-                u'Roaming\\vlc\\art',
-                u'Roaming\Yandex\YandexDisk',
-                u'gPodder\Downloads',
-                u'GTA IV\\User Music',
-                u'vova\Downloads',
-                u'zeal\docsets',
-                u'AppData\Local\Texts',
-                u'TuneUp Utilities\CrashDumps',
-                u'LocalState',
-                u'Local\Microsoft\Windows\\Notifications',
-                u'Local\Microsoft\Windows\WER\ReportArchive',
-                u'Local\Microsoft\Windows\SkyDrive\logs',
-                u'Local\Microsoft\Windows\PowerShell\CommandAnalysis',
-                u'Local\Microsoft\Messenger',
-                u'Local\Microsoft\Media Player',
-                u'Local\Microsoft\WLSetup')
+        self.crap = (
+            u'cache', u'Cache', u'Temp', u'tmp', u'.gimp-2.8',
+            u'vova\Downloads',
+            # apps
+            u'AppData\Local\GitHub', u'gith..', u'github',
+            u'Local\Mozilla\Firefox',  u'Chromium',
+            u'Firefox\Crash Reports', u'AppData\Local\Mozilla\\updates',
+            u'AppData\Roaming\Dropbox',
+            u'Roaming\Yandex\YandexDisk',
+            u'gPodder\Downloads',
+            u'Roaming\\uTorrent',
+            u'AppData\Roaming\Zona\plugins',
+            u'FastStone\FSIV',
+            u'Roaming\\vlc\\art',
+            u'Sublime Text 2\Backup',
+            u'GTA IV\\User Music',
+            u'zeal\docsets',
+            u'AppData\Local\Texts',
+            u'TuneUp Utilities\CrashDumps',
+            u'AppData\Local\Arcode',
+            u'AppData\Local\Mailbird',
+            u'.VirtualBox',
+            # ms
+            u'\AC\Microsoft',
+            u'LocalState',
+            u'Microsoft\SkyDrive',
+            u'Microsoft\Windows Live\Contacts',
+            u'Microsoft\Windows\Explorer',
+            u'Local\Microsoft\Windows\\Notifications',
+            u'Local\Microsoft\Windows\WER\ReportArchive',
+            u'Local\Microsoft\Windows\WER\ReportQueue',
+            u'Local\Microsoft\Windows\SkyDrive\logs',
+            u'Local\Microsoft\Windows\PowerShell\CommandAnalysis',
+            u'Local\Microsoft\Messenger',
+            u'Local\Microsoft\Media Player',
+            u'Local\Microsoft\WLSetup'
+            )
 
 if __name__ == '__main__':
     BUP().mainloop()

@@ -8,7 +8,7 @@
 }
 article.read .headline-title, article.read .title-link, .subheader, .day-header{ color: lightgray!important
 }
-.content{ max-width:700px !important; min-width:100px !important;
+.full-container{ max-width:720px !important; min-width:100px !important;
 }
 .headline-title{ overflow:visible !important; display:block !important;
 }
@@ -23,7 +23,7 @@ img{ width:auto!important; max-width:95% !important; height:auto !important;
  border-color: white!important;
  -moz-border-bottom-colors: lightgray!important;
 }
-article.selected > .full-container {
+article.selected > .full-container{
  margin:5px 0!important;
  border-width: 1px!important;
  border-color: white!important;
@@ -32,9 +32,175 @@ article.selected > .full-container {
 article.headline > .full-container{
  margin-left: 0px!important;
 }
-.mark-read-button, .delete-button{ background-image: none!important;
+.bookmark-button{
+ color: lightgrey;
+ width: 30px;
+ height: 30px;
+ background: none;
+ cursor: default;
 }
-.mark-read-button{ background: #d0f0c0;}
-.mark-read-button:hover{ background: #d0ffc0;}
-.delete-button{ background: #f0d0d0; border-left: 0!important;}
-.delete-button:hover{ background: #ffd0d0;}
+.bookmark-button:hover{
+ color: #ffd700;
+}
+.bookmark-button:before{
+ content:"\E082";
+ font: 22px "Segoe UI Symbol"!important;
+}
+article.starred .bookmark-button{
+ color: #ffd700;
+}
+article.starred .bookmark-button:hover{
+ color: lightgrey;
+}
+
+.headline-link {
+ margin-top: 0;
+ background: none;
+ color: lightgrey;
+ text-decoration: none;
+ -moz-box-pack: center;
+}
+.headline-link:hover{
+ color: black; background: lightgrey;
+}
+.headline-link:before{
+ content:"\E26B";
+ font: 18px "Segoe UI Symbol"!important;
+}
+
+.mark-read-button, .delete-button{
+ background-image: none!important;
+ cursor: default;
+ height: 30px;
+ -moz-box-align: center;
+ -moz-box-pack: center;
+}
+.mark-read-button{
+ color: green;
+}
+.mark-read-button:before{
+ content:"\E10B";
+ font-family:"Segoe UI Symbol"!important;
+}
+.mark-read-button:hover{
+ background: #d0ffc0;
+}
+.delete-button{
+ color: red; border-left: 0!important;
+}
+.delete-button:before{
+ content:"\E107";
+ font-family:"Segoe UI Symbol"!important;
+}
+.delete-button:hover{
+ background: #ffd0d0;
+}
+
+#update-progress {
+ margin: 12px 15px 12px 13px !important;
+}
+#update-progress > .progress-bar {
+ background: green;
+}
+
+.sidebar-button{
+ list-style-image: none;
+ margin: 0 5px !important;
+ opacity: .3;
+}
+.sidebar-button:hover{
+ opacity: 1;
+}
+#update-button, #stop-updating-button{
+ -moz-box-pack: center;
+ -moz-image-region: auto!important;
+}
+#update-button:before{
+ content:"\E117";
+ font: 11px "Segoe UI Symbol"!important;
+}
+#update-button:hover{
+ color: green;
+}
+#stop-updating-button:before{
+ content:"\E10A";
+ font: 17px/1.8 "Segoe UI Symbol"!important;
+}
+#stop-updating-button:hover{
+ color: red;
+}
+#options-button{
+ -moz-image-region: auto!important;
+}
+#options-button:before{
+ content:"\E115";
+ font: 17px/1.8 "Segoe UI Symbol"!important;
+}
+
+.unread-count {
+ border: 0 !important;
+ background-color: inherit !important;
+ color: black !important;
+}
+
+.view-icon{ display: none;}
+#view-list > richlistitem{
+ cursor: default;
+ color: black;
+ border-radius: 0px;
+ -moz-box-align: center !important;
+ padding: 0 0 0 5px !important;
+}
+#all-items-folder:before{
+ content:"\E154";
+ font: 11px "Segoe UI Symbol"!important;
+}
+#unread-folder:before{
+ content:"\E1D3";
+ font: 11px "Segoe UI Symbol"!important;
+}
+#starred-folder:before{
+ content:" \E082";
+ font: 11px "Segoe UI Symbol"!important;
+}
+#trash-folder:before{
+ content:"\E107";
+ font: 11px "Segoe UI Symbol"!important;
+}
+
+#feed-view-header > *{
+ background: transparent!important;
+}
+#feed-view-header{
+ padding: 0px 20px !important;
+ background: transparent!important;
+ border-bottom: 0 !important;
+ opacity: .3;
+}
+#feed-view-header:hover{ opacity: 1;}
+
+#mark-view-read {
+ list-style-image: none;
+ cursor: default;
+ padding: 1px 5px !important;
+ -moz-image-region: auto!important;
+}
+#mark-view-read:before{
+ height: 38px!important;
+ width: 38px!important;
+ color: green;
+ content:"\E001";
+ font: 22px "Segoe UI Symbol"!important;
+}
+#mark-view-read:hover:before{
+ color: red;
+}
+#mark-view-read:hover{
+ background: #ffd0d0!important;
+ -moz-image-region: auto!important;
+}
+
+#mark-view-read:hover:active {
+ background-color: red!important;
+ -moz-image-region: auto!important;
+}
