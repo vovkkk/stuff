@@ -1,4 +1,14 @@
 {
+	"in_process_packages":
+	[
+	],
+	"installed_dependencies":
+	[
+		"0_package_control_loader",
+		"bz2",
+		"select-windows",
+		"ssl-windows"
+	],
 	"installed_packages":
 	[
 		"BetterFindBuffer",
@@ -21,8 +31,8 @@
 		"Python Auto-Complete",
 		"SmartMarkdown",
 		"SublimePandoc",
-		"SublimeTODO",
 		"Superlime",
+		"TodoReview",
 		"Zeal"
 	],
 	"repositories":

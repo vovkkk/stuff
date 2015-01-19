@@ -1,5 +1,5 @@
-#!python
-# coding=utf-8
+#!python2
+# coding=utf8
 import os, shutil, urllib2, tempfile, io, zipfile
 
 class LetUsGetRatchet:

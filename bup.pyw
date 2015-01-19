@@ -3,7 +3,7 @@
 """non-ascii paths shall be passed to zipfile as they are, i.e. p (in fact, unicode(p));
    however, to print them, encoding shall be done, i.e. p.encode('utf8')
 """
-import pprint
+
 # TODO: create gui ¡MORE SWaG!
 """ gui spec:
     ✔ 3 buttons
@@ -16,14 +16,14 @@ import pprint
     ✔ list of existed zipfiles with thier sizes
         ✔ when at least one zipfile chosen [partial Backup] button become active
         - if several zipfiles are chosen [partial Backup] is based on them
-        - update list after new backup was done
+        ✔ update list after new backup was done
     ✔ self.console to print errors and other useful info
 """
 # TODO: keep settings in %appdata%, so they’ll be buped
 # TODO: add only changed or new files
 # TODO: ¿profiles? ¡PROBABLY NOT!
 
-import zipfile, os, datetime, itertools, zlib, ttk, threading
+import zipfile, os, datetime, itertools, zlib, ttk, threading, wmi, subprocess
 import Tkinter as tk
 import ScrolledText as tkst
 
@@ -74,7 +74,9 @@ class BUP(tk.Tk):
         self.dest_tree.tag_configure('month', background='#eee')
         for i, f in enumerate(bups):
             iid = 1 + self.months.index(datetime.datetime.strptime(f.split('.')[0], self.dte).strftime('%Y, %B'))
-            self.dest_tree.insert(parent=iid, index='end', values=[f, str(round(float(sizes[i])/1024000, 3)).replace('.', ' ')+' KB'])
+            # displayed size is supposed to mimic Explorer’s size column for user convinience
+            # FIXME: but sometimes it differs [bytes: 221090979] [explorer: 215 910 KB] [bup: 215 909 KB]
+            self.dest_tree.insert(parent=iid, index='end', values=[f, '{0:,} KB'.format(int(round(float(sizes[i])/1024))).replace(',', ' ')])
 
     def Activate_part_bup_btn(self, event):
         self.part_bup_btn.state(['!disabled'])
@@ -97,6 +99,9 @@ class BUP(tk.Tk):
         self.dest_tree.state(['disabled'])
         zip_bup = self.dest+datetime.datetime.now().strftime(self.dte)+'.zip'
         goodies = self.goodies
+        shadow_copy_service = wmi.WMI(moniker='winmgmts:\\\\.\\root\\cimv2:Win32_ShadowCopy')
+        self.res = shadow_copy_service.Create('ClientAccessible', 'C:\\')
+        self.shadow_copy_of_c = [c.DeviceObject for c in wmi.WMI().Win32_ShadowCopy('*') if c.ID==self.res[1]][0]
         def _sender(event_for_wait, event_for_set):
             event_for_wait.wait()
             event_for_wait.clear()
@@ -107,10 +112,23 @@ class BUP(tk.Tk):
                         if files: # ignore empty roots, nm, each dir’ll be root eventually
                             for i in files:
                                 try:
-                                    f.write(os.path.join(root, i))
+                                    name = os.path.join(root, i)
+                                    f.write(name)
                                     # self.console.insert(1.0, os.path.join(root, i)+'\n')
                                 except Exception as e:
-                                    self.console.insert(1.0, str(e)+'\n')
+                                    # self.console.insert(1.0, self.shadow_copy_of_c)
+                                    self.console.insert(1.0, ('\n%s\n\n' % ('='*99)))
+                                    self.console.insert(1.0, ('%s\n' % e))
+                                    try:
+                                        from_shadow = name.replace('C:', self.shadow_copy_of_c)
+                                        self.console.insert(1.0, (u'Try to get the file from shadow copy…\n%s\n'%from_shadow))
+                                        f.write(from_shadow, name)
+                                    except Exception as e:
+                                        self.console.insert(1.0, '%sFAILED shadow copy: %s %s\n' % ('='*9, e, from_shadow))
+                                    else:
+                                        self.console.insert(1.0, '\n\nSuccess shadow copy:\n{0}\n  as\n{1}\n'.format(from_shadow, name))
+                                else:
+                                    self.console.insert(1.0, '.')
                                     # print e
                                 # print(root.encode('utf8'), i.encode('utf8'))
                                 # else:
@@ -126,8 +144,10 @@ class BUP(tk.Tk):
             else:
                 with zipfile.ZipFile(zip_bup, 'r') as f:
                     wha = f.testzip()
+                # vssadmin delete shadows /All /Quiet
+                subprocess.call('vssadmin delete shadows /Shadow="%s" /Quiet'%self.res[1])
                 end = datetime.datetime.now()
-                self.console.insert(1.0, str(end-start)+'\n\nERRORS IN ZIP_FILE %s\n\n' % wha)
+                self.console.insert(1.0, str(end-start)+'\n\nERRORS IN ZIP_FILE: %s\n\n' % wha)
                 self.full_bup_btn.state(['!disabled'])
                 # re-fill tree
                 self.dest_tree.delete(*(i for i in xrange(1, len(self.months)+1)))
@@ -186,6 +206,7 @@ class BUP(tk.Tk):
         self.dte = '%y-%m-%d-%H-%M'
         self.crap = (
             u'cache', u'Cache', u'Temp', u'tmp', u'.gimp-2.8',
+            u'CrashDumps', u'\\Logs', u'Redist',
             u'vova\Downloads',
             # apps
             u'AppData\Local\GitHub', u'gith..', u'github',
@@ -206,6 +227,10 @@ class BUP(tk.Tk):
             u'AppData\Local\Arcode',
             u'AppData\Local\Mailbird',
             u'.VirtualBox',
+            u'Documents\\Neverwinter Nights 2',
+            u'Documents\\Mount&Blade Warband Savegames',
+            u'Euro Truck Simulator 2\mod',
+            u'Euro Truck Simulator 2\music',
             # ms
             u'\AC\Microsoft',
             u'LocalState',

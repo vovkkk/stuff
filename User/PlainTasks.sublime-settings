@@ -8,10 +8,19 @@
   "project_tag": true, // if true - postfix archived task with project tag, if false - prefix
   "archive_name": "Archive:", // make sure it is the unique project name within your todo files
   "indent_after_task": true, // indenting the next line after tasks
+  // "replace_stats_chars": [[" ■", " [="], ["■", "="], ["☐ ", " ] "], ["☐", " "]],
+  // "stats_format": "☐$o ✔$d ✘$c @hw({{@hw}})",
+  // "taskpaper_compatible": true,
 
   "color_scheme": "Packages/User/tasks-OF.hidden-tmTheme",
   // "color_scheme": "Packages/PlainTasks/tasks.hidden-tmTheme",
-  // "taskpaper_compatible": true,
+  // "color_scheme": "Packages/PlainTasks/tasks-dark.hidden-tmTheme",
+  // "color_scheme": "Packages/PlainTasks/tasks-eighties-colored.hidden-tmTheme",
+  // "color_scheme": "Packages/PlainTasks/tasks-eighties-dark.hidden-tmTheme",
+  // "color_scheme": "Packages/PlainTasks/tasks-gray.hidden-tmTheme",
+  // "color_scheme": "Packages/PlainTasks/tasks-monokai.hidden-tmTheme",
+  // "color_scheme": "Packages/PlainTasks/tasks-solarized-dark.hidden-tmTheme",
+  // "color_scheme": "Packages/PlainTasks/tasks-solarized-light.hidden-tmTheme",
   "font_size": 11,
   "font_face": "Consolas",
   "draw_indent_guides": true,

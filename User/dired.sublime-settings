@@ -9,6 +9,7 @@
 		"GitHub": "D:\\dev\\GitHub\\",
 		"Temp": "C:\\Users\\vova\\AppData\\Local\\Temp\\"
 	},
+	// "vcs_color_blind": true,
 	"dired_reuse_view": true,
 	"dired_show_parent": false,
 	"drag_text": false,
@@ -17,6 +18,7 @@
 	"highlight_line": true,
 	"line_numbers": false,
 	"margin": 0,
+	"dired_show_hidden_files": false,
 	"rulers":
 	[
 	],

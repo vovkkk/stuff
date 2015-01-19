@@ -1,3 +1,4 @@
+body{ background: none repeat scroll 0% 0% white }
 *{ font-family: caption!important;}
 .content, .headline-title, .title-link{ font-size:18px!important;
  font-weight: normal !important; color: black !important;
@@ -8,8 +9,6 @@
 }
 article.read .headline-title, article.read .title-link, .subheader, .day-header{ color: lightgray!important
 }
-.full-container{ max-width:720px !important; min-width:100px !important;
-}
 .headline-title{ overflow:visible !important; display:block !important;
 }
 .headline-header{ padding:0px;
@@ -17,11 +16,15 @@ article.read .headline-title, article.read .title-link, .subheader, .day-header{
 img{ width:auto!important; max-width:95% !important; height:auto !important;
 }
 .full-container{
+ max-width:720px !important;
+ min-width:100px !important;
  background: none!important;
  border-width: 1px!important;
  border-radius: 0!important;
  border-color: white!important;
  -moz-border-bottom-colors: lightgray!important;
+ -moz-border-right-colors: transparent!important;
+ -moz-border-left-colors: transparent!important;
 }
 article.selected > .full-container{
  margin:5px 0!important;

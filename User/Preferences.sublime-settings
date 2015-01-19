@@ -49,7 +49,7 @@
 	"enable_hexadecimal_encoding": true,
 	"ensure_newline_at_eof_on_save": false,
 	"fade_fold_buttons": true,
-	"fallback_encoding": "Western (Windows 1252)",
+	"fallback_encoding": "Cyrillic (Windows 1251)",
 	"file_exclude_patterns":
 	[
 		"*.pyc",
