@@ -41,6 +41,7 @@
 	"default_encoding": "UTF-8",
 	"default_line_ending": "unix",
 	"detect_indentation": true,
+	"dictionary": "Packages/Language - English/en_GB.dic",
 	"drag_text": true,
 	"draw_centered": false,
 	"draw_indent_guides": true,
@@ -95,6 +96,12 @@
 	[
 		"Vintage"
 	],
+	"ignored_words":
+	[
+		"Colour",
+		"cancelled",
+		"don’t"
+	],
 	"indent_guide_options":
 	[
 		"draw_normal"
@@ -125,7 +132,8 @@
 	"scroll_past_end": true,
 	"scroll_speed": 1.0,
 	"shift_tab_unindent": false,
-	"show_full_path": true,
+	"show_encoding": true,
+	"show_full_path": false,
 	"show_panel_on_build": true,
 	"show_tab_close_buttons": true,
 	"smart_indent": true,

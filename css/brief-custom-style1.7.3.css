@@ -1,9 +1,5 @@
-/* fix for github rss stupidity */
-pre {width: auto!important}
-/* end of fix */
-
-body{ background: none repeat scroll 0% 0% white; font-size: 100%important; }
-*{ font-family: caption!important; border: 0 !important;}
+body{ background: none repeat scroll 0% 0% white }
+*{ font-family: caption!important;}
 .content, .headline-title, .title-link{ font-size:18px!important;
  font-weight: normal !important; color: black !important;
 }
@@ -13,93 +9,31 @@ body{ background: none repeat scroll 0% 0% white; font-size: 100%important; }
 }
 article.read .headline-title, article.read .title-link, .subheader, .day-header{ color: lightgray!important
 }
-
-.content {
- max-width:700px !important;
- -moz-hyphens: auto !important;
- font-size:18px;
+.headline-title{ overflow:visible !important; display:block !important;
 }
-.headline-title{
- overflow:visible !important;
- font-family: Segoe UI;
- font-size:18px;
- height:auto !important;
- padding:10px;
-}
-.headline-header, .headline-container {height:auto !important;
+.headline-header{ padding:0px;
 }
 img{ width:auto!important; max-width:95% !important; height:auto !important;
 }
-article{
- margin: 0 !important;
- border: 0 !important;
-}
-/*article.collapsed > .headline-container {margin-top: 10px !important;
-}*/
 .full-container{
- margin: 5px 0 !important;
- flex: 0 1 720px !important;
- max-width: 720px !important;
+ max-width:720px !important;
+ min-width:100px !important;
+ background: none!important;
+ border-width: 1px!important;
+ border-radius: 0!important;
+ border-color: white!important;
+ -moz-border-bottom-colors: lightgray!important;
+ -moz-border-right-colors: transparent!important;
+ -moz-border-left-colors: transparent!important;
 }
 article.selected > .full-container{
  margin:5px 0!important;
- border-width: 0px!important;
+ border-width: 1px!important;
  border-color: white!important;
  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.3);
 }
-article.selected > .full-container > .full-container-inner, .full-container-inner{
- border: 0 !important;
- background: none !important;
- padding: 0 !important;
-}
 article.headline > .full-container{
  margin-left: 0px!important;
-}
-article.selected .headline-header {
- border: 0 !important;
- background-color: rgba(135,206,250, .25) !important;
-}
-.headline-header, .full-container{
- outline-bottom: 1px solid lightgray!important;
-}
-
-.headline-link {
- margin-top: 0;
- background: none;
- color: lightgrey;
- text-decoration: none;
- text-align: center;
-}
-.headline-link:hover{
- color: black; background: lightgrey;
-}
-.headline-link:before{
- content:"\E26B";
- font: 18px "Segoe UI Symbol"!important;
-}
-
-.collapse-button:hover {
- background-color: lightgrey !important;
- transition: background-color 1s;
-}
-.collapse-button {
- background: none repeat scroll 0% 0% white !important;
- text-align: center;
- cursor: default;
- height: auto!important;
-}
-.collapse-button:before {
- content: "• • •";
- /*font-size: 22px;*/
- color: lightgrey
-}
-
-.button{
- border: 0 !important;
- border-radius: 0 !important;
- text-align: center;
- line-height: 30px;
- font-size: 14px;
 }
 .bookmark-button{
  color: lightgrey;
@@ -120,6 +54,21 @@ article.starred .bookmark-button{
 }
 article.starred .bookmark-button:hover{
  color: lightgrey;
+}
+
+.headline-link {
+ margin-top: 0;
+ background: none;
+ color: lightgrey;
+ text-decoration: none;
+ -moz-box-pack: center;
+}
+.headline-link:hover{
+ color: black; background: lightgrey;
+}
+.headline-link:before{
+ content:"\E26B";
+ font: 18px "Segoe UI Symbol"!important;
 }
 
 .mark-read-button, .delete-button{
@@ -151,20 +100,12 @@ article.starred .bookmark-button:hover{
 }
 
 #update-progress {
- /*margin: 12px 15px 12px 13px !important;*/
+ margin: 12px 15px 12px 13px !important;
 }
 #update-progress > .progress-bar {
- background: green !important;
+ background: green;
 }
 
-#sidebar-top{
- /*height: 48px!important;*/
- max-height: 44px!important;
- min-height: 44px!important;
-}
-#sidebar-toolbar *{
- max-height: 24px!important;
-}
 .sidebar-button{
  list-style-image: none;
  margin: 0 5px !important;
@@ -182,14 +123,11 @@ article.starred .bookmark-button:hover{
  font: 11px "Segoe UI Symbol"!important;
 }
 #update-button:hover{
- color: green !important;
-}
-#update-button > .button-box, #stop-updating-button > .button-box{
- display: none;
+ color: green;
 }
 #stop-updating-button:before{
  content:"\E10A";
- font: 17px "Segoe UI Symbol"!important;
+ font: 17px/1.8 "Segoe UI Symbol"!important;
 }
 #stop-updating-button:hover{
  color: red;
@@ -206,38 +144,31 @@ article.starred .bookmark-button:hover{
  border: 0 !important;
  background-color: inherit !important;
  color: black !important;
- text-align: right !important;
- padding-right: 5px !important;
 }
 
 .view-icon{ display: none;}
 #view-list > richlistitem{
  cursor: default;
- color: black !important;
+ color: black;
  border-radius: 0px;
- /*-moz-box-align: center !important;*/
- /*padding: 0 0 0 5px !important;*/
- display: flex;
- /*height: 22px !important*/
-}
-#view-list > richlistitem > .view-title{
- flex: auto;
+ -moz-box-align: center !important;
+ padding: 0 0 0 5px !important;
 }
 #all-items-folder:before{
  content:"\E154";
- font: 11px/18px "Segoe UI Symbol"!important;
+ font: 11px "Segoe UI Symbol"!important;
 }
-#today-folder:before{
- content:"\E121";
- font: 11px/18px "Segoe UI Symbol"!important;
+#unread-folder:before{
+ content:"\E1D3";
+ font: 11px "Segoe UI Symbol"!important;
 }
 #starred-folder:before{
- content:"\E082 ";
- font: 11px/18px "Segoe UI Symbol"!important;
+ content:" \E082";
+ font: 11px "Segoe UI Symbol"!important;
 }
 #trash-folder:before{
  content:"\E107";
- font: 11px/18px "Segoe UI Symbol"!important;
+ font: 11px "Segoe UI Symbol"!important;
 }
 
 #feed-view-header > *{
@@ -275,13 +206,4 @@ article.starred .bookmark-button:hover{
 #mark-view-read:hover:active {
  background-color: red!important;
  -moz-image-region: auto!important;
-}
-
-#view-list > richlistitem[selected="true"],
-#view-list:focus > richlistitem[selected="true"],
-.tag-list-item[selected="true"],
-richtreefolder[selected="true"] > .folder-title-container,
-richtreeitem[selected="true"]  {
- border-color: #5899DA !important;
- background-color: #D1E8FF !important;
 }

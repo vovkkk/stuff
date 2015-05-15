@@ -245,6 +245,19 @@
 				<string>bold</string>
 			</dict>
 		</dict>
+		<dict>
+			<key>name</key>
+			<string>URL</string>
+			<key>scope</key>
+			<string>todo.url</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#003e7290</string>
+				<key>fontStyle</key>
+				<string>bold</string>
+			</dict>
+		</dict>
 	</array>
 	<key>uuid</key>
 	<string>FE674D9A-27B3-4A5A-84F7-1CC67BD29531</string>

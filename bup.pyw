@@ -111,6 +111,9 @@ class BUP(tk.Tk):
                     for root, dirs, files in itertools.chain(*self.goodies):
                         if files: # ignore empty roots, nm, each dir’ll be root eventually
                             for i in files:
+                                if (datetime.datetime.now()-self.end).seconds > 20:
+                                    self.end = datetime.datetime.now()
+                                    self.console.insert(1.0, ('\n%s\n' % str(self.end-start)))
                                 try:
                                     name = os.path.join(root, i)
                                     f.write(name)
@@ -153,7 +156,7 @@ class BUP(tk.Tk):
                 self.dest_tree.delete(*(i for i in xrange(1, len(self.months)+1)))
                 self.fill_treeview()
             event_for_set.set()
-        start = datetime.datetime.now()
+        start = self.end = datetime.datetime.now()
         write_event = threading.Event()
         report_event = threading.Event()
         t1 = threading.Thread(target=_sender, args=(write_event, report_event))
@@ -199,53 +202,14 @@ class BUP(tk.Tk):
     #             f.write(g)
 
     def settings(self):
-        self.what = (unicode(os.path.expanduser('~')),
-                u'D:\dev\GitHub',
-                u'D:\Dropbox\mine\\notes-md')
-        self.dest = 'S:\\bup\\'
-        self.dte = '%y-%m-%d-%H-%M'
-        self.crap = (
-            u'cache', u'Cache', u'Temp', u'tmp', u'.gimp-2.8',
-            u'CrashDumps', u'\\Logs', u'Redist',
-            u'vova\Downloads',
-            # apps
-            u'AppData\Local\GitHub', u'gith..', u'github',
-            u'Local\Mozilla\Firefox',  u'Chromium',
-            u'Firefox\Crash Reports', u'AppData\Local\Mozilla\\updates',
-            u'AppData\Roaming\Dropbox',
-            u'Roaming\Yandex\YandexDisk',
-            u'gPodder\Downloads',
-            u'Roaming\\uTorrent',
-            u'AppData\Roaming\Zona\plugins',
-            u'FastStone\FSIV',
-            u'Roaming\\vlc\\art',
-            u'Sublime Text 2\Backup',
-            u'GTA IV\\User Music',
-            u'zeal\docsets',
-            u'AppData\Local\Texts',
-            u'TuneUp Utilities\CrashDumps',
-            u'AppData\Local\Arcode',
-            u'AppData\Local\Mailbird',
-            u'.VirtualBox',
-            u'Documents\\Neverwinter Nights 2',
-            u'Documents\\Mount&Blade Warband Savegames',
-            u'Euro Truck Simulator 2\mod',
-            u'Euro Truck Simulator 2\music',
-            # ms
-            u'\AC\Microsoft',
-            u'LocalState',
-            u'Microsoft\SkyDrive',
-            u'Microsoft\Windows Live\Contacts',
-            u'Microsoft\Windows\Explorer',
-            u'Local\Microsoft\Windows\\Notifications',
-            u'Local\Microsoft\Windows\WER\ReportArchive',
-            u'Local\Microsoft\Windows\WER\ReportQueue',
-            u'Local\Microsoft\Windows\SkyDrive\logs',
-            u'Local\Microsoft\Windows\PowerShell\CommandAnalysis',
-            u'Local\Microsoft\Messenger',
-            u'Local\Microsoft\Media Player',
-            u'Local\Microsoft\WLSetup'
-            )
+        import yaml, io
+        with io.open(os.path.join(os.getenv('APPDATA'), u'MySettings.yaml'), 'r', encoding='utf8') as f:
+            setts = yaml.load(f).get('bup')
+        self.what = [unicode(os.path.expanduser(p.replace('/', os.sep))) for p in setts.get('what')]
+        self.dest = unicode(setts.get('dest'))
+        self.dte  = setts.get('dte')
+        self.crap = [unicode(p.replace('/', os.sep)) for p in setts.get('crap')]
+
 
 if __name__ == '__main__':
     BUP().mainloop()
