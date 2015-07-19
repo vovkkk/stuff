@@ -1,11 +1,12 @@
-body, div.text_cell_render {font-family: caption;}
+body, div.text_cell_render {font-family: caption; background-color: white!important}
 * {border-radius: 0px!important;}
+
+#notebook-container, #header {box-shadow: none!important;}
 
 .rendered_html * + p { margin-top: .3em;}
 .text_cell > .input_prompt {display: none;}
 div.inner_cell {
- flex: none;
- padding-left: 5px;
+ padding: 1px;
 }
 div.cell {margin: .5em 0;}
 div.text_cell_render h1 { /* Main titles bigger, centered */
@@ -13,12 +14,16 @@ div.text_cell_render h1 { /* Main titles bigger, centered */
  line-height:1.4em;
  text-align:center;
 }
+h1,h2,h3,h4,h5,h6{
+    font-family:Segoe UI Light!important;
+    font-weight: normal!important;
+}
 div.text_cell_render { /* Customize text cells */
  font-size:1.5em;
  line-height:1.4em;
  padding: 0 10px;
 }
-div.cell.edit_mode{border-color: #66A7E8!important;}
+.edit_mode div.cell.selected {border-color: #66A7E8!important;}
 div.cell.selected {border-color: #D1E8FF;}
 div.input_area {
  border: none;

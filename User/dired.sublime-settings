@@ -7,13 +7,14 @@
 		"AppData": "C:\\Users\\vova\\AppData\\",
 		"FileBrowser": "C:\\Users\\vova\\AppData\\Roaming\\Sublime Text 2\\Packages\\FileBrowser\\",
 		"GitHub": "D:\\dev\\GitHub\\",
-		"Temp": "C:\\Users\\vova\\AppData\\Local\\Temp\\"
+		"Temp": "C:\\Users\\vova\\AppData\\Local\\Temp\\",
+		"a": "D:\\dev\\GitHub\\a1\\",
+		"Новая папка": "C:\\Users\\vova\\Desktop\\Новая папка\\"
 	},
-	// "vcs_color_blind": true,
 	"dired_reuse_view": true,
 	"dired_show_full_path": true,
 	"dired_show_hidden_files": false,
-	"dired_show_parent": true,
+	"dired_show_parent": false,
 	"dired_to_copy":
 	[
 	],
@@ -21,10 +22,10 @@
 	[
 	],
 	"drag_text": false,
-	"draw_indent_guides": false,
+	"draw_indent_guides": true,
 	"fold_buttons": false,
-	// "git_path": "git",
 	"git_path": "~/Appdata/Local/GitHub/PortableGit_*/cmd/git.exe",
+	"hg_path": "",
 	"highlight_line": true,
 	"line_numbers": false,
 	"margin": 0,
@@ -33,5 +34,6 @@
 	],
 	"scroll_past_end": false,
 	"spell_check": false,
+	"vcs_color_blind": false,
 	"word_wrap": false
 }

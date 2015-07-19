@@ -23,9 +23,12 @@
 # TODO: add only changed or new files
 # TODO: ¿profiles? ¡PROBABLY NOT!
 
-import zipfile, os, datetime, itertools, zlib, ttk, threading, wmi, subprocess
+
+import zipfile, os, datetime, itertools, ttk, threading, wmi, subprocess
+# import zlib
 import Tkinter as tk
 import ScrolledText as tkst
+
 
 class BUP(tk.Tk):
     def __init__(self):
@@ -46,7 +49,7 @@ class BUP(tk.Tk):
         self.full_bup_btn = ttk.Button(text='Full backup')
         self.part_bup_btn = ttk.Button(text='Partial backup', state='disabled')
         self.config_btn   = ttk.Button(text='Configuration')
-        self.dest_tree = ttk.Treeview(columns=(' ',' '))
+        self.dest_tree = ttk.Treeview(columns=(' ', ' '))
         self.console = tkst.ScrolledText(font='Consolas 10', wrap=tk.WORD, insertwidth=1, padx=10, pady=5, width=103)
         # place
         for i, b in enumerate([self.full_bup_btn, self.part_bup_btn, self.config_btn], start=1):
@@ -83,7 +86,7 @@ class BUP(tk.Tk):
         self.selected_bups = [s for s in (self.dest_tree.set(s, column='#1') for s in self.dest_tree.selection()) if '.zip' in s]
 
     def cut_da_crap(self, shit, crap):
-        for r,d,f in shit:
+        for r, d, f in shit:
             for c in crap:
                 v = True
                 if c in r:
@@ -98,10 +101,10 @@ class BUP(tk.Tk):
         self.full_bup_btn.state(['disabled'])
         self.dest_tree.state(['disabled'])
         zip_bup = self.dest+datetime.datetime.now().strftime(self.dte)+'.zip'
-        goodies = self.goodies
         shadow_copy_service = wmi.WMI(moniker='winmgmts:\\\\.\\root\\cimv2:Win32_ShadowCopy')
         self.res = shadow_copy_service.Create('ClientAccessible', 'C:\\')
-        self.shadow_copy_of_c = [c.DeviceObject for c in wmi.WMI().Win32_ShadowCopy('*') if c.ID==self.res[1]][0]
+        self.shadow_copy_of_c = [c.DeviceObject for c in wmi.WMI().Win32_ShadowCopy('*') if c.ID == self.res[1]][0]
+
         def _sender(event_for_wait, event_for_set):
             event_for_wait.wait()
             event_for_wait.clear()
@@ -109,7 +112,7 @@ class BUP(tk.Tk):
                 with zipfile.ZipFile(zip_bup, 'w', zipfile.ZIP_DEFLATED) as f:
                     # for g in self.goodies:
                     for root, dirs, files in itertools.chain(*self.goodies):
-                        if files: # ignore empty roots, nm, each dir’ll be root eventually
+                        if files:  # ignore empty roots, nm, each dir’ll be root eventually
                             for i in files:
                                 if (datetime.datetime.now()-self.end).seconds > 20:
                                     self.end = datetime.datetime.now()
@@ -124,7 +127,7 @@ class BUP(tk.Tk):
                                     self.console.insert(1.0, ('%s\n' % e))
                                     try:
                                         from_shadow = name.replace('C:', self.shadow_copy_of_c)
-                                        self.console.insert(1.0, (u'Try to get the file from shadow copy…\n%s\n'%from_shadow))
+                                        self.console.insert(1.0, (u'Try to get the file from shadow copy…\n%s\n' % from_shadow))
                                         f.write(from_shadow, name)
                                     except Exception as e:
                                         self.console.insert(1.0, '%sFAILED shadow copy: %s %s\n' % ('='*9, e, from_shadow))
@@ -148,7 +151,7 @@ class BUP(tk.Tk):
                 with zipfile.ZipFile(zip_bup, 'r') as f:
                     wha = f.testzip()
                 # vssadmin delete shadows /All /Quiet
-                subprocess.call('vssadmin delete shadows /Shadow="%s" /Quiet'%self.res[1])
+                subprocess.call('vssadmin delete shadows /Shadow="%s" /Quiet' % self.res[1])
                 end = datetime.datetime.now()
                 self.console.insert(1.0, str(end-start)+'\n\nERRORS IN ZIP_FILE: %s\n\n' % wha)
                 self.full_bup_btn.state(['!disabled'])
@@ -166,7 +169,7 @@ class BUP(tk.Tk):
         write_event.set()
 
     def amen(self, f, root, files):
-        if files: # ignore empty roots, nm, each dir’ll be root eventually
+        if files:  # ignore empty roots, nm, each dir’ll be root eventually
             for i in files:
                 try:
                     f.write(os.path.join(root, i))
