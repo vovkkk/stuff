@@ -1,7 +1,8 @@
 {
-  "prompt_config": [
-    {"name": "Default"},
-    {"name": "Time", "format": "%X"},
-    {"name": "Date", "format": "%x"},
-    {"name": "iso",  "format": "iso"}
-]}
+	"prompt_config":[
+		{"name": "Default"},
+		{"format": "%X", "name": "Time"},
+		{"format": "%x", "name": "Date"},
+		{"format": "iso", "name": "iso"}],
+	"tz_in": "Asia/Novosibirsk"
+}
