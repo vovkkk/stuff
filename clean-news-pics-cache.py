@@ -1,7 +1,7 @@
 #! python2 -u
 # coding: utf8
-from __future__ import print_function
-import os, time, subprocess
+# from __future__ import print_function
+import os, time
 
 import yaml, io
 with io.open(os.path.join(os.getenv('APPDATA'), u'MySettings.yaml'), 'r', encoding='utf8') as f:
@@ -39,6 +39,7 @@ def fop(files):
     out = SHFileOperationW(ctypes.byref(args))
 
 each_ten = range(10, len(stuff), 10)
+len_stuff = len(stuff)
 
 for i, f in enumerate(stuff, start=1):
     f = os.path.join(grist, f)
@@ -52,15 +53,15 @@ for i, f in enumerate(stuff, start=1):
             size   += os.path.getsize(f)
             newest.append(time.gmtime(modified))
             files.append(f)
-    if i in each_ten:
+    # if i in each_ten:
         # calling cls is very slow on each file, so reduce to each tenth
-        subprocess.call(['cls'], shell=True)
-        print('          %d files' % i)
-        if amount:
-            print('to remove %d files (%.2f MiB)' % (amount, size/float(1024**2)))
+        # subprocess.call(['cls'], shell=True)
+    msg = 'scand %d out of %d files' % (i, len_stuff) + ('; to remove %d files (%.2f MiB)' % (amount, size/float(1024**2)) if amount else '')
+    print msg + chr(8)*(len(msg)+1),
 
 sorted(newest)
 
+print
 print('%d / %d' % (amount, len(stuff)))
 print('%.2f MiB' % (size/float(1024**2)))
 print([time.strftime(date, newest[0]), time.strftime(date, newest[~0])])

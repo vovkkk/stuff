@@ -1,0 +1,6 @@
+{
+ "scope": "text.todo",
+ "completions": [
+  { "trigger": "i\t@important", "contents": "@important"}
+ ]
+}
