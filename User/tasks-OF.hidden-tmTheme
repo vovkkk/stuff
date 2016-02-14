@@ -18,7 +18,7 @@
 				<key>invisibles</key>
 				<string>#00000040</string>
 				<key>lineHighlight</key>
-				<string>#E2E9F8</string>
+				<string>#A6C0ED50</string>
 				<key>selection</key>
 				<string>#00000029</string>
 			</dict>
@@ -195,6 +195,51 @@
 				<string>#D0000F</string>
 				<key>fontStyle</key>
 				<string>bold</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>High</string>
+			<key>scope</key>
+			<string>string.other.tag.todo.high</string>
+			<key>settings</key>
+			<dict>
+				<key>background</key>
+				<string>#EC098Caa</string>
+				<key>foreground</key>
+				<string>#000000</string>
+				<key>fontStyle</key>
+				<string></string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Low</string>
+			<key>scope</key>
+			<string>string.other.tag.todo.low</string>
+			<key>settings</key>
+			<dict>
+				<key>background</key>
+				<string>#FFC425aa</string>
+				<key>foreground</key>
+				<string>#000000</string>
+				<key>fontStyle</key>
+				<string></string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Critical</string>
+			<key>scope</key>
+			<string>string.other.tag.todo.critical</string>
+			<key>settings</key>
+			<dict>
+				<key>background</key>
+				<string>#D11141aa</string>
+				<key>foreground</key>
+				<string>#000000</string>
+				<key>fontStyle</key>
+				<string></string>
 			</dict>
 		</dict>
 		<dict>

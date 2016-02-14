@@ -5,7 +5,6 @@
 	],
 	"installed_packages":
 	[
-		"AAAPackageDev",
 		"BetterFindBuffer",
 		"Chain of Command",
 		"ChannelRepositoryTools",
@@ -22,10 +21,12 @@
 		"LineJumper",
 		"M3U Syntax",
 		"Package Control",
+		"PackageDev",
 		"PlainTasks",
 		"PlainTasksExtractTodo",
 		"PowerShell",
-		"Python Auto-Complete",
+		"Python Completions",
+		"ShowEncoding",
 		"SmartMarkdown",
 		"SublimeLinter",
 		"SublimePandoc",

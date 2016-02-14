@@ -4,10 +4,10 @@
 /* fix for content starting with line break */
     .content > br:nth-child(1){display: none}
 
-body{ background: none repeat scroll 0% 0% white; font-size: 100%important; }
+body{ background: none repeat scroll 0% 0% white; font-size: 100%!important; }
 *{ font-family: caption!important; border: 0 !important;}
 .content, .headline-title, .title-link{ font-size:18px!important;
- font-weight: normal !important; color: black !important;
+ font-weight: normal !important; color: black !important; white-space: normal;
 }
 .title-link{
  font-size:22px!important;
@@ -118,8 +118,8 @@ article.selected .headline-header {
  background: none repeat scroll 0% 0% transparent !important;
  text-align: center;
  cursor: default;
- height: auto!important;
- margin-top: -5px;
+ height: 16px!important;
+ margin-top: -7px;
  z-index: 99;
 }
 .collapse-button:before {
@@ -195,6 +195,10 @@ article.starred .bookmark-button:hover{
  /*height: 48px!important;*/
  max-height: 44px!important;
  min-height: 44px!important;
+}
+.sidebar-button-box{
+ min-width: auto !important;
+ overflow: visible;
 }
 #sidebar-toolbar *{
  max-height: 24px!important;
