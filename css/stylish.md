@@ -98,6 +98,10 @@ height: auto;
 @namespace url(http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul);
 /**
  * @Author: Heartripper
+ * | Firefox      | Thunderbird   |
+ * | ------------ | ------------- |
+ * | #TabsToolbar | #tabs-toolbar |
+ * | .tabbrowser  | .tabmail      |
  */
 /*Tabs*/
 #TabsToolbar {

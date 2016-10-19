@@ -10,6 +10,7 @@
   "indent_after_task": true, // indenting the next line after tasks
   // "replace_stats_chars": [[" ■", " [="], ["■", "="], ["☐ ", " ] "], ["☐", " "]],
   // "stats_format": "☐$o ✔$d ✘$c @hw({{@hw}})",
+  "stats_format": "☐ $o  ✔ $d  ✘ $c  • $a $progress @t({{@today}})",
   // "taskpaper_compatible": true,
 
   "color_scheme": "Packages/User/tasks-OF.hidden-tmTheme",

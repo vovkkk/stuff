@@ -1,5 +1,6 @@
 {
 	"color_scheme": "Packages/FileBrowser/dired.hidden-tmTheme",
+	"dired_autorefresh": true,
 	"dired_confirm_send2trash": true,
 	"dired_header": false,
 	"dired_jump_points":

@@ -94,6 +94,9 @@
 	"hot_exit": true,
 	"ignored_packages":
 	[
+		"InactivePanes",
+		"Paradox",
+		"sublemacspro",
 		"Vintage"
 	],
 	"ignored_words":

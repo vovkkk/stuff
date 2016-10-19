@@ -1,5 +1,5 @@
 {
-  "zeal_command": "D:\\dev\\zeal\\zeal.exe",
+  "zeal_command": "D:\\Program Files\\Zeal\\zeal.exe",
   "language_mapping": {
     "HTML": {"lang": "html", "zeal_lang": "html"},
     "JavaScript": {"lang": "javascript", "zeal_lang": "javascript"},
