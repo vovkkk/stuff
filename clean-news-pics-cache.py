@@ -50,7 +50,10 @@ for i, f in enumerate(stuff, start=1):
     else:
         if int(now-modified) > 2592000:
             amount += 1
-            size   += os.path.getsize(f)
+            try:
+                size += os.path.getsize(f)
+            except Exception as e:
+                errors.append(str(e))
             newest.append(time.gmtime(modified))
             files.append(f)
     # if i in each_ten:
@@ -63,11 +66,14 @@ sorted(newest)
 
 print
 print('%d / %d' % (amount, len(stuff)))
-print('%.2f MiB' % (size/float(1024**2)))
-print([time.strftime(date, newest[0]), time.strftime(date, newest[~0])])
-print(u'\n'.join(errors))
 
 if files:
+    print('%.2f MiB' % (size/float(1024**2)))
+    print([time.strftime(date, newest[0]), time.strftime(date, newest[~0])])
     fop(files)
+else:
+    print('nothing to remove')
+
+print(u'\n'.join(errors))
 
 input('press <enter>')

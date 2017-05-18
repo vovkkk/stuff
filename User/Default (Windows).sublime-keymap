@@ -1,4 +1,38 @@
 [
+{ "keys": ["tab"], "command": "smart_table",
+	"args": {"forward": true}, "context":
+	[
+		{ "key": "selector", "operator": "equal", "operand": "text.todo notes.todo" },
+		{ "key": "preceding_text", "operator": "regex_contains", "operand": "^\\s*(\\||\\+[-=])",
+			"match_all": true}
+	]
+},
+{ "keys": ["tab"], "command": "smart_table",
+	"args": {"forward": true}, "context":
+	[
+		{ "key": "selector", "operator": "equal", "operand": "text.todo notes.todo" },
+		{ "key": "preceding_text", "operator": "regex_contains", "operand": "^\\s*" },
+		{ "key": "following_text", "operator": "regex_contains", "operand": "\\s*(\\||\\+[-=])",
+			"match_all": true}
+	]
+},
+{ "keys": ["shift+tab"], "command": "smart_table",
+	"args": {"forward": false}, "context":
+	[
+		{ "key": "selector", "operator": "equal", "operand": "text.todo notes.todo" },
+		{ "key": "preceding_text", "operator": "regex_contains", "operand": "^\\s*(\\||\\+[-=])",
+			"match_all": true}
+	]
+},
+{ "keys": ["shift+tab"], "command": "smart_table",
+	"args": {"forward": false}, "context":
+	[
+		{ "key": "selector", "operator": "equal", "operand": "text.todo notes.todo" },
+		{ "key": "preceding_text", "operator": "regex_contains", "operand": "^\\s*" },
+		{ "key": "following_text", "operator": "regex_contains", "operand": "\\s*(\\||\\+[-=])",
+			"match_all": true}
+	]
+},
 {"keys": ["f1"], "command": "toggle_setting", "args": {"setting": "line_numbers"}},
 {"keys": ["alt+f1"], "command": "zeal_search_selection"},
 {"keys": ["shift+f1"], "command": "zeal_search"},
@@ -12,6 +46,7 @@
 { "keys": ["ctrl+pageup"], "command": "prev_view_in_stack" },
 { "keys": ["ctrl+tab"], "command": "next_view" },
 { "keys": ["ctrl+shift+tab"], "command": "prev_view" },
+
 {"keys": ["shift+backspace"], "command": "close_file"},
 {"keys": ["alt+1"], "command": "fold_by_level", "args": {"level": 1}},
 {"keys": ["alt+2"], "command": "fold_by_level", "args": {"level": 2}},

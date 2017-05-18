@@ -4,7 +4,13 @@
 /* fix for content starting with line break */
     .content > br:nth-child(1){display: none}
 
-body{ background: none repeat scroll 0% 0% white; font-size: 100%!important; }
+body {
+ /*background: none repeat scroll 0% 0% white; */
+ font-size: 100%!important;
+}
+#feed-content{
+ padding: 0!important;
+}
 figure{width: auto!important; margin: 33px auto!important;}
 *{ font-family: caption!important; border: 0 !important;}
 .content, .headline-title, .title-link{ font-size:18px!important;
@@ -69,11 +75,14 @@ article{
  width: 720px !important;
  max-width: 100%;
 }
+article.selected {
+ background-color: white !important;
+}
 article.selected > .full-container{
  margin:5px 0!important;
  border-width: 0px!important;
  border-color: white!important;
- box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.3);
+ /*box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.3);*/
 }
 article.selected > .full-container > .full-container-inner, .full-container-inner{
  border: 0 !important;
@@ -90,7 +99,8 @@ article.headline > .full-container{
 }
 article.selected .headline-header {
  border: 0 !important;
- background-color: rgba(135,206,250, .25) !important;
+ /*background-color: rgba(135,206,250, .25) !important;*/
+ background-color: transparent !important;
 }
 .headline-header, .full-container{
  outline-bottom: 1px solid lightgray!important;
@@ -129,6 +139,9 @@ article.selected .headline-header {
  color: lightgrey
 }
 
+.button-spacer, .spacer {
+ display: none;
+}
 .button{
  border: 0 !important;
  border-radius: 0 !important;
@@ -188,12 +201,12 @@ article.starred .bookmark-button:hover{
 #update-progress {
  /*margin: 12px 15px 12px 13px !important;*/
 }
-#update-progress > .progress-bar {
+#update-progress::-moz-progress-bar {
  background: green !important;
 }
 
 #sidebar-top{
- /*height: 48px!important;*/
+ height: 48px!important;
  max-height: 44px!important;
  min-height: 44px!important;
 }
@@ -202,7 +215,7 @@ article.starred .bookmark-button:hover{
  overflow: visible;
 }
 #sidebar-toolbar *{
- max-height: 24px!important;
+ /*max-height: 24px!important;*/
 }
 .sidebar-button{
  list-style-image: none;
@@ -214,7 +227,10 @@ article.starred .bookmark-button:hover{
 }
 #update-button, #stop-updating-button{
  -moz-box-pack: center;
- -moz-image-region: auto!important;
+ -moz-image-region: auto !important;
+ overflow: hidden;
+ width: 32px;
+ max-height: 32px !important;
 }
 #update-button:before{
  content:"\E117";
@@ -222,9 +238,6 @@ article.starred .bookmark-button:hover{
 }
 #update-button:hover{
  color: green !important;
-}
-#update-button > .button-box, #stop-updating-button > .button-box{
- display: none;
 }
 #stop-updating-button:before{
  content:"\E10A";
@@ -279,18 +292,18 @@ article.starred .bookmark-button:hover{
  font: 11px/18px "Segoe UI Symbol"!important;
 }
 
-#feed-view-header > *{
+/*#feed-view-header > *{
  background: transparent!important;
-}
+}*/
 #feed-view-header{
- padding: 0px 20px !important;
- background: transparent!important;
+ padding: 0px 10px !important;
+ background: rgb(248, 248, 248) !important;
  border-bottom: 0 !important;
  opacity: .3;
 }
-#feed-view-header:hover{ opacity: 1;}
+#feed-view-header:hover{ opacity: 1; background: rgb(252, 252, 252)  !important}
 
-#mark-view-read {
+/*#mark-view-read {
  list-style-image: none;
  cursor: default;
  padding: 1px 5px !important;
@@ -314,13 +327,9 @@ article.starred .bookmark-button:hover{
 #mark-view-read:hover:active {
  background-color: red!important;
  -moz-image-region: auto!important;
-}
+}*/
 
-#view-list > richlistitem[selected="true"],
-#view-list:focus > richlistitem[selected="true"],
-.tag-list-item[selected="true"],
-richtreefolder[selected="true"] > .folder-title-container,
-richtreeitem[selected="true"]  {
- border-color: #5899DA !important;
+tree-item.selected, tree-folder.selected > tree-folder-header {
+ border: 1px solid #5899DA !important;
  background-color: #D1E8FF !important;
 }
