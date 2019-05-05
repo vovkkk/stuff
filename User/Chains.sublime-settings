@@ -1,0 +1,19 @@
+{
+  "done_symbol": "X", // options: x | ✘ | ✔
+  "rulers": [],
+  "color_scheme": "Packages/Chains/chains.hidden-tmTheme",
+  "font_size": 8,
+  "font_face": "Consolas",
+  "draw_indent_guides": false,
+  "line_numbers": false,
+  "gutter": true,
+  "margin": 2,
+  "tab_size": 2,
+  "translate_tabs_to_spaces": true,
+  "use_tab_stops": false,
+  "match_brackets": false,
+  "fold_buttons": false,
+  "fade_fold_buttons": false,
+  "trim_trailing_white_space_on_save": true,
+  "extensions": ["chain"]
+}

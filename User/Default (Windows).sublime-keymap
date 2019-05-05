@@ -111,5 +111,5 @@
 //     ]
 //   },
 {"keys": ["f1"], "command": "plain_tasks_extract_todo",
-"context": [{"key": "selector", "operator": "equal", "operand": "text.todo"}]}
+ "context": [{"key": "selector", "operator": "equal", "operand": "text.todo"}]}
 ]

@@ -20,10 +20,12 @@
 		"Google Search",
 		"InactivePanes",
 		"InsertDate",
+		"Kivy Language",
 		"knockdown",
 		"LineEndings",
 		"LineJumper",
 		"M3U Syntax",
+		"Origami",
 		"Package Control",
 		"PackageDev",
 		"Paradox",
@@ -37,6 +39,7 @@
 		"SublimePandoc",
 		"Superlime",
 		"TodoReview",
+		"VBScript",
 		"Zeal"
 	],
 	"repositories":

@@ -5,7 +5,13 @@
 """
 
 # TODO: create gui ¡MORE SWaG!
-""" gui spec:
+"""
+on top panel:
+    - timer
+    - file counter
+    - ¿size counter?
+    - errors counter
+gui spec:
     ✔ 3 buttons
         ✔ full Backup       simply create zip from certain paths (current default)
         - partial Backup
@@ -24,10 +30,18 @@
 # TODO: ¿profiles? ¡PROBABLY NOT!
 
 
-import zipfile, os, datetime, itertools, ttk, threading, wmi, subprocess
+import zipfile, os, datetime, itertools, threading, wmi, subprocess
 # import zlib
-import Tkinter as tk
-import ScrolledText as tkst
+try:
+    import Tkinter as tk
+    import ttk
+    from ScrolledText import ScrolledText as tkst
+except:
+    import tkinter as tk
+    import tkinter.ttk as ttk
+    from tkinter.scrolledtext import ScrolledText as tkst
+    itertools.imap = map
+    from functools import reduce
 
 
 class BUP(tk.Tk):
@@ -50,7 +64,7 @@ class BUP(tk.Tk):
         self.part_bup_btn = ttk.Button(text='Partial backup', state='disabled')
         self.config_btn   = ttk.Button(text='Configuration')
         self.dest_tree = ttk.Treeview(columns=(' ', ' '))
-        self.console = tkst.ScrolledText(font='Consolas 10', wrap=tk.WORD, insertwidth=1, padx=10, pady=5, width=103)
+        self.console = tkst(font='Consolas 10', wrap=tk.WORD, insertwidth=1, padx=10, pady=5, width=103)
         # place
         for i, b in enumerate([self.full_bup_btn, self.part_bup_btn, self.config_btn], start=1):
             b.grid(row=1, column=i, sticky='w')
@@ -67,7 +81,7 @@ class BUP(tk.Tk):
         bups = [i for i in os.listdir(self.dest) if i.endswith('.zip')]
         sizes = [os.path.getsize(os.path.join(self.dest, f)) for f in bups]
         self.dest_tree.heading("#1", text=u'{0}{2}{1} files'.format(self.dest, len(bups), ' '*4))
-        self.dest_tree.heading("#2", text=u'{0} GiB'.format(round(float(reduce(lambda x, y: x+y, sizes))/1024**3, 2)))
+        self.dest_tree.heading("#2", text=u'{0} GiB'.format(round(float(reduce(lambda x, y: x+y, sizes, 0,))/1024**3, 2)))
         self.dest_tree.column("#0", width=1)
         self.dest_tree.column("#1", width=150)
         self.dest_tree.column("#2", anchor='e', width=70, stretch=False)
@@ -135,7 +149,7 @@ class BUP(tk.Tk):
                                         self.console.insert(1.0, '\n\nSuccess shadow copy:\n{0}\n  as\n{1}\n'.format(from_shadow, name))
                                 else:
                                     self.console.insert(1.0, '.')
-                                    # print e
+                                    # print (e)
                                 # print(root.encode('utf8'), i.encode('utf8'))
                                 # else:
                                 #     pass
@@ -145,8 +159,8 @@ class BUP(tk.Tk):
                         else:
                             # print('oops', root, dirs, files)
                             pass
-                                    # print root
-                            # print 'done'
+                                    # print (root)
+                            # print ('done')
             else:
                 with zipfile.ZipFile(zip_bup, 'r') as f:
                     wha = f.testzip()
@@ -156,7 +170,7 @@ class BUP(tk.Tk):
                 self.console.insert(1.0, str(end-start)+'\n\nERRORS IN ZIP_FILE: %s\n\n' % wha)
                 self.full_bup_btn.state(['!disabled'])
                 # re-fill tree
-                self.dest_tree.delete(*(i for i in xrange(1, len(self.months)+1)))
+                self.dest_tree.delete(*(i for i in range(1, len(self.months)+1)))
                 self.fill_treeview()
             event_for_set.set()
         start = self.end = datetime.datetime.now()
@@ -174,7 +188,7 @@ class BUP(tk.Tk):
                 try:
                     f.write(os.path.join(root, i))
                 except Exception as e:
-                    print e
+                    print (e)
                 # print(root.encode('utf8'), i.encode('utf8'))
         else:
             pass
@@ -196,7 +210,7 @@ class BUP(tk.Tk):
     #                 except KeyError:
     #                     yield f
     #                 except IOError as e:
-    #                     print e
+    #                     print (e)
 
     # def saves(self, goodies):
     #     zip_bup = self.dest+datetime.datetime.now().strftime(self.dte)+'.zip'
@@ -208,10 +222,10 @@ class BUP(tk.Tk):
         import yaml, io
         with io.open(os.path.join(os.getenv('APPDATA'), u'MySettings.yaml'), 'r', encoding='utf8') as f:
             setts = yaml.load(f).get('bup')
-        self.what = [unicode(os.path.expanduser(p.replace('/', os.sep))) for p in setts.get('what')]
-        self.dest = unicode(setts.get('dest'))
+        self.what = [os.path.expanduser(p.replace('/', os.sep)) for p in setts.get('what')]
+        self.dest = setts.get('dest')
         self.dte  = setts.get('dte')
-        self.crap = [unicode(p.replace('/', os.sep)) for p in setts.get('crap')]
+        self.crap = [p.replace('/', os.sep) for p in setts.get('crap')]
 
 
 if __name__ == '__main__':

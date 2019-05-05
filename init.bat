@@ -2,14 +2,17 @@
 :: Sets some nice defaults
 :: Created as part of cmder project
 
-:: Find root dir
-@if not defined CMDER_ROOT (
-    for /f %%i in ("%ConEmuDir%\..\..") do @set CMDER_ROOT=%~dp0..\
-)
+@set "CMDER_ROOT=D:\Program Files\utilities\cmder_mini"
+@
+@call "%cmder_root%\vendor\lib\lib_base"
+@call "%cmder_root%\vendor\lib\lib_path"
+@call "%cmder_root%\vendor\lib\lib_console"
+@call "%cmder_root%\vendor\lib\lib_git"
+@call "%cmder_root%\vendor\lib\lib_profile"
 
 :: Change the prompt style
 :: Mmm tasty lamb
-@prompt $E[1;35m$P$S{git}$S$_$E[1;30m{lamb}$S$E[0m
+::@prompt $E[1;35m$P$S{git}$S$_$E[1;30m{lamb}$S$E[0m
 
 :: Pick right version of clink
 @if "%PROCESSOR_ARCHITECTURE%"=="x86" (
@@ -19,7 +22,7 @@
 )
 
 :: Run clink
-@"%CMDER_ROOT%\vendor\clink\clink_x%architecture%.exe" inject --quiet --profile "%CMDER_ROOT%\config"
+@"%CMDER_ROOT%\vendor\clink\clink_x%architecture%.exe" inject --quiet --profile "%CMDER_ROOT%\config" --scripts "%CMDER_ROOT%\vendor"
 
 :: Prepare for msysgit
 

@@ -297,7 +297,7 @@ article.starred .bookmark-button:hover{
 }*/
 #feed-view-header{
  padding: 0px 10px !important;
- background: rgb(248, 248, 248) !important;
+ background: rgb(245, 245, 245) !important;
  border-bottom: 0 !important;
  opacity: .3;
 }
