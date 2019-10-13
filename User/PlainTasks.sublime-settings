@@ -23,7 +23,6 @@
   // "color_scheme": "Packages/PlainTasks/tasks-monokai.hidden-tmTheme",
   // "color_scheme": "Packages/PlainTasks/tasks-solarized-dark.hidden-tmTheme",
   // "color_scheme": "Packages/PlainTasks/tasks-solarized-light.hidden-tmTheme",
-  "font_size": 11,
   "font_face": "Consolas",
   "draw_indent_guides": true,
   "line_numbers": false,
