@@ -1,5 +1,6 @@
 {
 	"bootstrapped": true,
+	"debug": false,
 	"in_process_packages":
 	[
 	],
@@ -27,7 +28,6 @@
 		"M3U Syntax",
 		"Origami",
 		"Package Control",
-		"PackageDev",
 		"Paradox",
 		"PlainTasks",
 		"PlainTasksExtractTodo",
